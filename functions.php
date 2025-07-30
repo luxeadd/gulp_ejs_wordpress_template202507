@@ -21,3 +21,6 @@ require_once get_theme_file_path('./functions/admin.php');
 
 // セキュリティ設定
 require_once get_theme_file_path('./functions/security.php');
+
+// カスタム投稿設定
+require_once get_theme_file_path('./functions/custom-post.php');

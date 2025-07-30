@@ -63,11 +63,11 @@
           <li class="p-header-menu__item p-header-menu__item--subMenu">企業情報
             <ul class="p-header-menu__subItems">
               <li class="p-header-menu__subItem"><a href="<?php echo $urls['about']; ?>">私たちについて</a></li>
-              <li class="p-header-menu__subItem"><a href="<?php echo $abutUrls['company']; ?>">会社概要</a></li>
-              <li class="p-header-menu__subItem"><a href="<?php echo $abutUrls['message']; ?>">代表挨拶</a></li>
-              <li class="p-header-menu__subItem"><a href="<?php echo $abutUrls['organization']; ?>">組織体制</a></li>
-              <li class="p-header-menu__subItem"><a href="<?php echo $abutUrls['officer']; ?>">役員紹介</a></li>
-              <li class="p-header-menu__subItem"><a href="<?php echo $abutUrls['history']; ?>">沿革</a></li>
+              <li class="p-header-menu__subItem"><a href="<?php echo $urls['company']; ?>">会社概要</a></li>
+              <li class="p-header-menu__subItem"><a href="<?php echo $urls['message']; ?>">代表挨拶</a></li>
+              <li class="p-header-menu__subItem"><a href="<?php echo $urls['organization']; ?>">組織体制</a></li>
+              <li class="p-header-menu__subItem"><a href="<?php echo $urls['officer']; ?>">役員紹介</a></li>
+              <li class="p-header-menu__subItem"><a href="<?php echo $urls['history']; ?>">沿革</a></li>
             </ul>
           </li>
           <li class="p-header-menu__item"><a href="<?php echo $urls['solution']; ?>">事業紹介</a></li>

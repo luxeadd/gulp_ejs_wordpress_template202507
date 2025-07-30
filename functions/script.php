@@ -17,8 +17,8 @@ function my_script_init()
 	//swiper.js読み込み
 	wp_enqueue_script('my-swiper', '//unpkg.com/swiper@8/swiper-bundle.min.js');
 	//css読み込み
-	wp_enqueue_style('my-css', get_template_directory_uri() . '/assets/css/styles.css', array(), filemtime(get_stylesheet_directory() . '/assets/css/styles.css'), 'all');
+	wp_enqueue_style('my-css', get_template_directory_uri() . '/dist/assets/css/styles.css', array(), filemtime(get_stylesheet_directory() . '/dist/assets/css/styles.css'), 'all');
 	//js読み込み defer=true
-	wp_enqueue_script('my-js', get_template_directory_uri() . '/assets/js/script.js', array(), '1.0.1', true);
+	wp_enqueue_script('my-js', get_template_directory_uri() . '/dist/assets/js/script.js', array(), '1.0.1', true);
 }
 add_action('wp_enqueue_scripts', 'my_script_init');

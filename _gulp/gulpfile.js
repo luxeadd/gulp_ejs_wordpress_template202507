@@ -29,7 +29,7 @@ const zip = require("gulp-zip");
 //ejs ： 本プロジェクトのdistフォルダに出力
 //wp ： 下記で指定したWPローカル環境のテーマフォルダに出力
 //wp-build ： 本プロジェクトのdistフォルダに出力
-const compilingSet = "ejs";
+const compilingSet = "wp";
 // WordPressの開発環境 local or studio or mamp or docker で指定
 const wpDevSet = "local"; 
 // WordPressのプロジェクト名
@@ -37,8 +37,8 @@ const wpProject = "test01";
 // WordPressのテーマ名 //style.cssのテーマ名も変更すること
 const wpThemeName = "test01";
 // WordPressのローカル環境のURL
-const wpLocalUrl = "http://localhost:10124/"; 
-// PC名
+const wpLocalUrl = "http://localhost:10114/"; 
+// PCユーザー名
 const pcName = "kounosatoshi";
 // Localフォルダ
 const localFolder = "Local Sites";

@@ -4,6 +4,7 @@ import { smoothScroll } from "./_scroll.js";
 import { slider } from "./_slider.js";
 import { modal } from "./_modal.js";
 import { tab } from "./_tab.js";
+import { form } from "./_form.js";
 
 
 drawer();
@@ -12,6 +13,7 @@ smoothScroll();
 slider();
 modal();
 tab();
+form();
 
 // ----------------------
 // 以下はjQueryの記述
