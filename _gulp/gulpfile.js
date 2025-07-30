@@ -72,31 +72,44 @@ const srcPath = {
   wpCss: "../style.css",
 };
 
+// 画像、CSS、JSの出力先
+const baseDistDestPath = {
+  all: "../dist/**/*",
+  css: "../dist/assets/css/",
+  js: "../dist/assets/js/",
+  img: "../dist/assets/images/",
+};
+
+// EJSの出力先
+const ejsDestPath = {
+  ejs: "../dist/",
+};
+
+// WPローカル環境の出力先
+const wpLocalDestPath = {
+  all: `${wpFolder}/**/*/`,
+  css: `${wpFolder}/dist/assets/css/`,
+  js: `${wpFolder}/dist/assets/js/`,
+  img: `${wpFolder}/dist/assets/images/`,
+  wp: `${wpFolder}/`,
+  wpCss: `${wpFolder}/`,
+};
+
+
 // 出力先
 let destPath;
 if (compilingSet === "ejs") {
   destPath = {
-    all: "../dist/**/*",
-    css: "../dist/assets/css/",
-    js: "../dist/assets/js/",
-    img: "../dist/assets/images/",
-    ejs: "../dist/",
+    ...baseDistDestPath,
+    ...ejsDestPath,
   };
 } else if (compilingSet === "wp") {
   destPath = {
-    all: `${wpFolder}/**/*/`,
-    css: `${wpFolder}/dist/assets/css/`,
-    js: `${wpFolder}/dist/assets/js/`,
-    img: `${wpFolder}/dist/assets/images/`,
-    wp: `${wpFolder}/`,
-    wpCss: `${wpFolder}/`,
+    ...wpLocalDestPath,
   };
 } else if (compilingSet === "wp-build") {
   destPath = {
-    all: "../dist/**/*",
-    css: "../dist/assets/css/",
-    js: "../dist/assets/js/",
-    img: "../dist/assets/images/",
+    ...baseDistDestPath,
   };
 }
 
@@ -378,6 +391,16 @@ if (compilingSet === "ejs") {
   );
   exports.build = series(clean, cssSass, jsBundle, imgImagemin, wpCopy, wpCssCopy);
   exports.zip = archive;
+  // distフォルダに出力するビルドタスクを追加
+  exports["build-dist"] = series(
+    () => {
+      destPath = {
+        ...baseDistDestPath,
+      };
+      return Promise.resolve();
+    },
+    series(clean, cssSass, jsBundle, imgImagemin)
+  );
 } else if (compilingSet === "wp-build") {
   exports.default = series(
     series(cssSass, jsBundle, imgImagemin),

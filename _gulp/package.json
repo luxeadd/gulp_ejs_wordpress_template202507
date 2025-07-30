@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx gulp default",
     "build": "npx gulp build",
+    "build-dist": "npx gulp build-dist",
     "zip": "npx gulp zip"
   },
   "keywords": [],

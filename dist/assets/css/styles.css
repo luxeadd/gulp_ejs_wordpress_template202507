@@ -1115,6 +1115,541 @@ input:is([type=button i],
   padding: calc(50 / 16 * 1rem) 0;
 }
 
+.form {
+  --formBorderColor: #ccc;
+  --formRequiredColor: #f44949;
+  --formOutLineColor: #007bff;
+  --formRadioCheckColor: #222;
+  --formCheckBoxColor: #007bff;
+  --formAgreeColorColor: #0f0102;
+  --formSubmitHoverColor: #007bff;
+  --formDisableColor: #ccc;
+  --formConfirmColor: #fff;
+  --formInputHeight: rem(50);
+}
+
+.form {
+  max-width: 782px;
+  margin-inline: auto;
+}
+@media screen and (max-width: 767px) {
+  .form {
+    max-width: 500px;
+  }
+}
+
+.form__content {
+  display: flex;
+  align-items: flex-start;
+  gap: calc(20 / 16 * 1rem);
+}
+@media screen and (max-width: 767px) {
+  .form__content {
+    display: block;
+  }
+}
+.form__content.st_center {
+  align-items: center;
+}
+.form__content.st_center .form__head {
+  margin-top: initial;
+}
+
+.form__content + .form__content {
+  margin-top: calc(15 / 16 * 1rem);
+}
+
+.form__content.form__contentButton {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin-top: calc(50 / 16 * 1rem);
+  gap: calc(30 / 16 * 1rem) calc(50 / 16 * 1rem);
+}
+.form__content.form__contentButton > p {
+  display: inherit;
+  flex-wrap: inherit;
+  justify-content: inherit;
+  width: inherit;
+  gap: inherit;
+}
+.form__content.form__contentButton br {
+  display: none;
+}
+
+.form__contentCheckbox {
+  text-align: center;
+}
+
+.form__head {
+  display: flex;
+  flex: 0 0 calc(265 / 16 * 1rem);
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: calc(18 / 16 * 1rem);
+  gap: calc(10 / 16 * 1rem);
+}
+@media screen and (max-width: 767px) {
+  .form__head {
+    flex: initial;
+    justify-content: flex-start;
+  }
+}
+
+.form__title {
+  font-weight: var(--bold);
+  font-size: calc(16 / 16 * 1rem);
+  line-height: 1.875;
+  letter-spacing: 0.1em;
+}
+
+.form__confirm {
+  display: flex;
+  align-items: center;
+  min-height: var(--formInputHeight);
+  font-size: calc(16 / 16 * 1rem);
+  line-height: 1.875;
+  letter-spacing: 0.1em;
+}
+
+.form__required {
+  display: grid;
+  place-content: center;
+  min-width: calc(60 / 16 * 1rem);
+  min-height: calc(30 / 16 * 1rem);
+  padding: calc(3 / 16 * 1rem);
+  border-radius: 5px;
+  background: currentColor;
+  color: var(--formRequiredColor);
+  font-weight: bold;
+  font-size: calc(13 / 16 * 1rem);
+  line-height: 1;
+  letter-spacing: 0.1em;
+}
+
+.form__item {
+  flex: 1;
+  max-width: calc(500 / 16 * 1rem);
+}
+@media screen and (max-width: 767px) {
+  .form__item {
+    max-width: initial;
+    margin-top: calc(10 / 16 * 1rem);
+  }
+}
+.form__item.st_large {
+  max-width: initial;
+}
+.form__item .c-text {
+  margin-top: initial;
+  padding: calc(10 / 16 * 1rem) calc(10 / 16 * 1rem);
+}
+.form__item br {
+  display: none;
+}
+
+.formText {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  min-height: var(--formInputHeight);
+  padding: calc(8 / 16 * 1rem) calc(8 / 16 * 1rem);
+  border: 1px solid var(--formBorderColor);
+  background-image: none;
+  background-color: var(--white);
+  color: inherit;
+  font-size: calc(16 / 16 * 1rem);
+  font-family: inherit;
+}
+.formText:focus {
+  outline: 2px solid var(--formOutLineColor);
+  box-shadow: none;
+}
+.formText::-moz-placeholder {
+  color: inherit;
+}
+.formText::placeholder {
+  color: inherit;
+}
+.formText:focus::-moz-placeholder {
+  color: transparent;
+}
+.formText:focus::placeholder {
+  color: transparent;
+}
+
+.formRadio {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: var(--formInputHeight);
+  padding-left: calc(10 / 16 * 1rem);
+  gap: calc(5 / 16 * 1rem) calc(10 / 16 * 1rem);
+}
+.formRadio > p {
+  display: contents;
+}
+.formRadio br {
+  display: none;
+}
+.formRadio label {
+  position: relative;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.formRadio input[type=radio] {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  white-space: nowrap;
+          clip-path: inset(50%);
+}
+.formRadio input[type=radio]:focus-visible + span {
+  outline: 2px solid var(--formRequiredColor);
+}
+.formRadio input[type=radio] + span {
+  display: inline-block;
+  position: relative;
+  padding: 5px 15px 6px 25px;
+  cursor: pointer;
+}
+.formRadio input[type=radio] + span::before {
+  -webkit-transform: translateY(-50%);
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  aspect-ratio: 1/1;
+  width: calc(16 / 16 * 1rem);
+  transform: translateY(-50%);
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 50%;
+  background: #fff;
+  content: "";
+}
+.formRadio input[type=radio] + span::after {
+  -webkit-transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  aspect-ratio: 1/1;
+  width: calc(16 / 16 * 1rem);
+  padding: 2px;
+  transform: translateY(-50%);
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: var(--formRadioCheckColor);
+  content: "";
+  opacity: 0;
+  transition: all 0.3s ease 0s;
+}
+.formRadio input[type=radio]:checked + span::after {
+  opacity: 1;
+}
+
+.formSelect {
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 100%;
+  padding: calc(5 / 16 * 1rem) calc(10 / 16 * 1rem);
+  border: 1px solid var(--formBorderColor);
+  font-size: calc(16 / 16 * 1rem);
+}
+.formSelect:focus {
+  outline: 2px solid var(--formOutLineColor);
+  box-shadow: none;
+}
+.formSelect::-moz-placeholder {
+  color: inherit;
+}
+.formSelect::placeholder {
+  color: inherit;
+}
+.formSelect:focus::-moz-placeholder {
+  color: transparent;
+}
+.formSelect:focus::placeholder {
+  color: transparent;
+}
+
+.formTextArea {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  min-height: 200px;
+  padding: calc(12 / 16 * 1rem) calc(12 / 16 * 1rem);
+  border: 1px solid var(--formBorderColor);
+  border-radius: 5px;
+  background-image: none;
+  background-color: #fff;
+  color: inherit;
+  font-size: calc(16 / 16 * 1rem);
+  white-space: pre-wrap;
+}
+.formTextArea:focus {
+  outline: 2px solid var(--formOutLineColor);
+  box-shadow: none;
+}
+.formTextArea::-moz-placeholder {
+  color: inherit;
+}
+.formTextArea::placeholder {
+  color: inherit;
+}
+.formTextArea:focus::-moz-placeholder {
+  color: transparent;
+}
+.formTextArea:focus::placeholder {
+  color: transparent;
+}
+
+.formCheck {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: calc(10 / 16 * 1rem);
+  gap: calc(5 / 16 * 1rem) calc(10 / 16 * 1rem);
+}
+.formCheck > p {
+  display: inherit;
+  flex-direction: inherit;
+  flex-wrap: inherit;
+  padding-left: inherit;
+  gap: inherit;
+}
+.formCheck label {
+  position: relative;
+}
+.formCheck input[type=checkbox] {
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+  opacity: 0;
+}
+.formCheck input[type=checkbox] + span {
+  display: inline-block;
+  position: relative;
+  margin: 0 0.2em 0;
+  padding: 0 0 0 calc(25 / 16 * 1rem);
+  font-size: calc(16 / 16 * 1rem);
+  line-height: 1.714285;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+.formCheck input[type=checkbox] + span::before {
+  -webkit-transform: translateY(-50%);
+  display: block;
+  position: absolute;
+  top: calc(15 / 16 * 1rem);
+  left: 0;
+  width: 1em;
+  height: 1em;
+  border: 1px solid var(--formBorderColor);
+  border-radius: 2px;
+  background: #fff;
+  content: "";
+}
+.formCheck input[type=checkbox] + span::after {
+  -webkit-transform: translateY(-50%) rotate(-45deg);
+  display: block;
+  position: absolute;
+  top: calc(12 / 16 * 1rem);
+  left: 1px;
+  width: 1em;
+  height: 0.6em;
+  transform: translateY(-50%) rotate(-45deg);
+  border-bottom: 3px solid var(--formCheckBoxColor);
+  border-left: 3px solid var(--formCheckBoxColor);
+  content: "";
+  opacity: 0;
+  transition: all 0.3s ease 0s;
+}
+.formCheck input[type=checkbox]:checked + span::before {
+  background: #fff;
+}
+.formCheck input[type=checkbox]:checked + span::after {
+  opacity: 1;
+}
+.formCheck input[type=checkbox]:focus-visible + span {
+  outline: 2px solid var(--formOutLineColor);
+}
+.formCheck .c-text {
+  margin-top: initial !important;
+}
+
+.formAgree {
+  position: relative;
+}
+.formAgree p {
+  display: contents;
+}
+.formAgree label {
+  position: relative;
+}
+.formAgree input[type=checkbox] {
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: calc(30 / 16 * 1rem);
+  height: calc(30 / 16 * 1rem);
+  margin: 0;
+  transform: translateY(-50%);
+  cursor: pointer;
+  opacity: 0;
+}
+.formAgree span {
+  display: inline-block;
+  position: relative;
+  padding: 0 0 0 calc(50 / 16 * 1rem);
+  font-weight: var(--bold);
+  font-size: calc(16 / 16 * 1rem);
+  line-height: 2;
+  cursor: pointer;
+}
+.formAgree span a {
+  text-decoration: underline;
+}
+.formAgree span::before {
+  -webkit-transform: translateY(-50%);
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: calc(30 / 16 * 1rem);
+  height: calc(30 / 16 * 1rem);
+  transform: translateY(-50%);
+  border: 1px solid var(--formBorderColor);
+  border-radius: 5px;
+  background: #fff;
+  content: "";
+}
+.formAgree span::after {
+  -webkit-transform: translateY(-50%) rotate(-45deg);
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: calc(5 / 16 * 1rem);
+  width: 1.5em;
+  height: 0.6em;
+  transform: translateY(-55%) rotate(-45deg);
+  border-bottom: 3px solid var(--formAgreeColorColor);
+  border-left: 3px solid var(--formAgreeColorColor);
+  content: "";
+  opacity: 0;
+  transition: all 0.3s ease 0s;
+}
+.formAgree input[type=checkbox]:checked ~ span::before {
+  background: #fff;
+}
+.formAgree input[type=checkbox]:checked ~ span::after {
+  opacity: 1;
+}
+.formAgree input[type=checkbox]:focus-visible ~ span {
+  outline: 2px solid var(--formOutLineColor);
+}
+.formAgree .formAgree__link {
+  display: block;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: calc(50 / 16 * 1rem);
+  width: calc(150 / 16 * 1rem);
+  height: 1.8em;
+  border-bottom: 1px solid var(--base-color);
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.formBtn {
+  -webkit-appearance: none;
+  display: inline-block;
+  flex: 0 0 calc(180 / 16 * 1rem);
+  min-height: calc(60 / 16 * 1rem);
+  margin: 0;
+  padding: calc(5 / 16 * 1rem);
+  border: none;
+  background-image: none;
+  background-color: #fff;
+  color: var(--base-color);
+  font-weight: var(--bold);
+  font-weight: 700;
+  font-size: calc(16 / 16 * 1rem);
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+@media (hover: hover) {
+  .formBtn:hover {
+    opacity: 0.7;
+  }
+}
+.formBtn.is_confirm {
+  background: var(--formConfirmColor);
+}
+.formBtn:disabled {
+  background: var(--formDisableColor);
+  pointer-events: none;
+}
+.formBtn:hover, .formBtn:focus {
+  outline: none;
+}
+.formBtn::-moz-foucus-inner {
+  padding: 0;
+  border: none;
+}
+.formBtn:focus-visible {
+  outline: 1px solid var(--formOutLineColor);
+}
+
+.formPolicy {
+  width: 100%;
+  height: calc(400 / 16 * 1rem);
+  padding: calc(10 / 16 * 1rem);
+  overflow-y: scroll;
+  border: 1px solid #333;
+  background: #fff;
+}
+.formPolicy .formPolicy__text {
+  font-size: calc(16 / 16 * 1rem);
+  line-height: 1.7142;
+  letter-spacing: 0.04em;
+}
+
+.wpcf7-spinner {
+  display: none;
+}
+
+.wpcf7-list-item {
+  margin: 0;
+}
+
+.wpcf7-response-output {
+  display: none;
+}
+
+.wpcf7 form .wpcf7-response-output {
+  border: none;
+}
+
+.js_confirmArea {
+  display: none;
+}
+
 .p-drawer-menu {
   display: none;
 }
